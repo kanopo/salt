@@ -59,7 +59,7 @@
     clipman
     gnumake
     gnupg
-
+    gcc49
   ];
 
   gtk = {
@@ -83,7 +83,10 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     MOZ_ENABLE_WAYLAND = "1";
+    GPG_TTY="$(tty)";
   };
+
+
 
 }
 

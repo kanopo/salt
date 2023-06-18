@@ -67,8 +67,24 @@
     clipman
     gnumake
     gnupg
-    gcc49
+    pinentry
+    gccgo
+    unzip
+    wget
+    cargo
+    luarocks
+    jdk
+    tree-sitter
+    exa
   ];
+
+  # home.xdg.mimeApps = {
+  #   enable = true;
+  #   defaultApplications = {
+  #
+  #   };
+  # };
+
 
   gtk = {
     enable = true;

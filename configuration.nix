@@ -74,7 +74,7 @@
   };
   programs.gnupg.agent = {
         enable = true;
-      };
+  };
 
 
   hardware.bluetooth.enable = true;

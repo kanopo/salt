@@ -137,6 +137,12 @@
     xdg-utils
   ];
 
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    MOZ_ENABLE_WAYLAND = "1";
+    GPG_TTY="$(tty)";
+  };
+
   programs.sway.enable = true;
   xdg.portal.wlr.enable = true;
 

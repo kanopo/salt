@@ -4,7 +4,15 @@
 
   home.stateVersion = "23.05";
 
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
+    (nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "DroidSansMono"
+        ];
+      })
     btop
     neofetch
     firefox
@@ -79,14 +87,6 @@
       '';
     };
   };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    MOZ_ENABLE_WAYLAND = "1";
-    GPG_TTY="$(tty)";
-  };
-
-
 
 }
 

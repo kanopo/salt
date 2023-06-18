@@ -8,7 +8,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.timeout = 3;
+  boot.loader.timeout = 5;
 
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
@@ -69,18 +69,25 @@
       coreOffset = -50;
       analogioOffset = -50;
     };
+
+    gnome.gnome-keyring.enable = true;
   };
+  programs.gnupg.agent = {
+        enable = true;
+      };
+
 
   hardware.bluetooth.enable = true;
 
 
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
-    style = "gtk2";
-  };
+  # qt = {
+  #   enable = true;
+  #   platformTheme = "adwaita-dark";
+  #   style = "adwaita-dark";
+  # };
 
   security.sudo.wheelNeedsPassword = false;
+  security.pam.services.gdm.enableGnomeKeyring = true;
 
 
   nix = {
@@ -91,8 +98,8 @@
     };
       gc = {
         automatic = true;
-	dates = "weekly";
-	options = "--delete-older-than 7d";
+	      dates = "weekly";
+	      options = "--delete-older-than 7d";
       };
   };
 
@@ -134,6 +141,9 @@
     intel-media-driver
     vaapiIntel
     microcodeIntel
+    dbus
+    gnome.gnome-keyring
+
   ];
 
   environment.sessionVariables = {
@@ -145,14 +155,13 @@
   programs.sway.enable = true;
   xdg.portal.wlr.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
+  security.polkit.enable = true;
   programs.zsh.enable = true;
   users.users.dmo.shell = pkgs.zsh;
 
   hardware.cpu.intel.updateMicrocode = true;
 
   virtualisation.docker.enable = true;
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

@@ -31,7 +31,7 @@
     wofi
     keepassxc
     dropbox
-    texlive.combined.scheme-medium
+    texlive.combined.scheme-full
     gnome.seahorse
     awscli2
     yt-dlp
@@ -77,16 +77,10 @@
     jdk
     tree-sitter
     exa
+    vscode
+    texlab
     ltex-ls
   ];
-
-  # home.xdg.mimeApps = {
-  #   enable = true;
-  #   defaultApplications = {
-  #
-  #   };
-  # };
-
 
   gtk = {
     enable = true;

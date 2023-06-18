@@ -62,6 +62,13 @@
       pulse.enable = true;
       alsa.support32Bit = true;
     };
+
+    undervolt = {
+      enable = true;
+      gpuOffset = 0;
+      coreOffset = -50;
+      analogioOffset = -50;
+    };
   };
 
   hardware.bluetooth.enable = true;
@@ -97,7 +104,7 @@
   users.users.dmo = {
     isNormalUser = true;
     description = "Dmitri Ollari Ischimji";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "docker" ];
     packages = with pkgs; [
       neofetch
       firefox
@@ -123,6 +130,10 @@
   environment.systemPackages = with pkgs; [
     neovim
     xdg-utils
+    intel-gpu-tools
+    intel-media-driver
+    vaapiIntel
+    microcodeIntel
   ];
 
   environment.sessionVariables = {
@@ -138,6 +149,9 @@
   programs.zsh.enable = true;
   users.users.dmo.shell = pkgs.zsh;
 
+  hardware.cpu.intel.updateMicrocode = true;
+
+  virtualisation.docker.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

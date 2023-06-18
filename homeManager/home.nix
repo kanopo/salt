@@ -57,6 +57,7 @@
     xdg-user-dirs
     tmux
     nodejs_20
+    nodePackages.pnpm
     python311
     python311Packages.pip
     polkit_gnome
@@ -76,6 +77,7 @@
     jdk
     tree-sitter
     exa
+    ltex-ls
   ];
 
   # home.xdg.mimeApps = {
@@ -103,6 +105,7 @@
       '';
     };
   };
+
 
 }
 
